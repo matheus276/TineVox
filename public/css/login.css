@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    height: 100vh;
+
+    display: flex;
+
+    color: #fff;
+    background-image: url("/images/login.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    position: relative;
+}
+
+/* Overlay escuro */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 0;
+}
+
+/* BLOCO DIREITO (FORMULÁRIO OCUPA TELA TODA ALTURA) */
+.login-box {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 450px;
+
+    height: 100vh;        /* 👈 altura total da tela */
+    margin-left: auto;    /* 👈 joga para direita */
+
+    background: rgba(17, 24, 39, 0.92);
+    padding: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+}
+
+/* CONTAINER DO LOGO */
+.tinevox-container {
+    height: 100vh;              /* ocupa toda altura da tela */
+    display: flex;
+    justify-content: center;    /* centro horizontal */
+    align-items: center;        /* centro vertical */
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* INPUTS */
+.form-control {
+    background: #1f2937;
+    border: none;
+    color: #fff;
+}
+
+/* FOCUS INPUT */
+.form-control:focus {
+    background: #1f2937;
+    color: #fff;
+    border: 1px solid #3b82f6;
+    box-shadow: none;
+}
+
+/* TEXTOS */
+h1, h2, label {
+    color: #fff;
+}

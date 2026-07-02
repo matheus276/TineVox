@@ -1,0 +1,384 @@
+/* ======================================================
+   FUNDO DA PÁGINA
+====================================================== */
+
+body {
+    color: #fff;
+
+    background-image:
+        linear-gradient(rgba(10, 20, 50, .55),
+                        rgba(10, 20, 50, .55)),
+        url("/images/login.webp");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+}
+
+/* ======================================================
+   CONTEÚDO PRINCIPAL
+====================================================== */
+
+.content {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* ======================================================
+   CARDS PRINCIPAIS
+====================================================== */
+
+#ramais,
+.historico {
+
+    background: rgba(30, 45, 90, .75);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
+
+    padding: 30px;
+
+    animation: fadeUp .6s ease;
+}
+
+/* ======================================================
+   TÍTULOS
+====================================================== */
+
+h1,
+h4 {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+h1::after,
+h4::after {
+    content: "";
+    display: block;
+
+    width: 80px;
+    height: 4px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ff3c3c,
+        #ff6b6b
+    );
+}
+
+/* ======================================================
+   PAINEL DE RAMAIS
+====================================================== */
+
+#painel {
+    min-height: 120px;
+    font-size: .9rem;
+}
+
+.card-ramal {
+
+    min-height: 95px;
+
+    border: none;
+    border-radius: 18px;
+
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.18);
+
+    transition: all .3s ease;
+}
+
+.card-ramal:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.30);
+}
+
+.card-ramal .numero {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.card-ramal .status {
+    font-size: .95rem;
+    color: rgba(255,255,255,.95);
+}
+
+.card-ramal .destino {
+    font-size: .8rem;
+    opacity: .85;
+}
+
+/* ======================================================
+   STATUS DOS RAMAIS
+====================================================== */
+
+.online {
+    background: linear-gradient(
+        135deg,
+        #34d399,
+        #10b981
+    );
+}
+
+.offline {
+    background: linear-gradient(
+        135deg,
+        #ff6b6b,
+        #ef4444
+    );
+}
+
+.ligacao {
+    background: linear-gradient(
+        135deg,
+        #60a5fa,
+        #3b82f6
+    );
+}
+
+.tocando {
+    background: linear-gradient(
+        135deg,
+        #fbbf24,
+        #f59e0b
+    );
+}
+
+/* ======================================================
+   VER MAIS
+====================================================== */
+
+.ramal-extra {
+    max-height: 0;
+    opacity: 0;
+
+    overflow: hidden;
+
+    transform: translateY(-20px);
+
+    transition:
+        max-height .8s ease,
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.ramal-extra.show {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ver-mais-container {
+    position: relative;
+    margin: 35px 0;
+    cursor: pointer;
+}
+
+.linha {
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,.4);
+}
+
+.icone-seta {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.95);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #16213e;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,.20);
+
+    transition: .3s;
+}
+
+.icone-seta:hover {
+    background: #1e3a8a;
+    color: #fff;
+
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.icone-seta.rotacionado {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* ======================================================
+   TABELA
+====================================================== */
+
+.table {
+    margin-top: 30px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: none;
+}
+
+.table thead tr {
+    background: rgba(255,255,255,.18);
+}
+
+.table thead th {
+
+    color: #ffffff !important;
+
+    font-weight: 600;
+
+    border: none;
+
+    padding: 18px;
+
+    background: transparent;
+}
+
+.table tbody tr {
+    transition: .3s;
+}
+
+.table tbody tr:nth-child(odd) td {
+    background: rgba(255,255,255,.08) !important;
+}
+
+.table tbody tr:nth-child(even) td {
+    background: rgba(255,255,255,.12) !important;
+}
+
+.table tbody tr:hover td {
+    background: rgba(255,255,255,.20) !important;
+}
+
+.table td {
+
+    color: #ffffff !important;
+
+    padding: 18px;
+
+    border-color: rgba(255,255,255,.08);
+
+    vertical-align: middle;
+}
+
+/* Remove estilos do Bootstrap */
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    color: #ffffff !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+    color: #ffffff !important;
+}
+
+/* ======================================================
+   BADGES
+====================================================== */
+
+.badge {
+    padding: 8px 12px;
+    border-radius: 50px;
+    font-size: .8rem;
+}
+
+/* ======================================================
+   SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,.08);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.25);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,.45);
+}
+
+/* ======================================================
+   ANIMAÇÕES
+====================================================== */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======================================================
+   RESPONSIVO
+====================================================== */
+
+@media (max-width: 768px) {
+
+    .content {
+        padding: 15px;
+    }
+
+    #ramais,
+    .historico {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .card-ramal .numero {
+        font-size: 1.6rem;
+    }
+
+    .table {
+        font-size: .85rem;
+    }
+}

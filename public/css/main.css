@@ -1,0 +1,144 @@
+/* ========================================
+   LAYOUT
+======================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F1F5F9;
+}
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    transition: all 0.3s ease;
+    overflow-x: hidden;
+}
+
+body.sidebar-expanded .layout {
+    margin-left: 250px;
+}
+
+body.sidebar-collapsed .layout {
+    margin-left: 60px;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    width: 250px;
+    min-width: 250px;
+
+    background: linear-gradient(
+        180deg,
+        #16213E 0%,
+        #101827 20%,
+        #101827 100%
+    ) !important;
+
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: flex;
+}
+
+/* Sidebar recolhida */
+.sidebar.collapsed {
+    width: 60px;
+    min-width: 60px;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+.sidebar img {
+    max-width: 250px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+}
+
+.sidebar.collapsed img {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ========================================
+   BOTÃO TOGGLE
+======================================== */
+
+#toggleSidebar {
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+
+    color: #fff;
+    border: none;
+    background: transparent;
+
+    transition: all 0.3s ease;
+}
+
+#toggleSidebar:hover {
+    background: #16213E;
+    color: #FF2D2D;
+}
+
+/* ========================================
+   MENU
+======================================== */
+
+.sidebar .nav-link {
+    color: #ffffff !important;
+    padding: 12px 16px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    white-space: nowrap;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #16213E;
+    color: #FF2D2D !important;
+    border-left: 4px solid #FF2D2D;
+}
+
+.sidebar .nav-link.active {
+    background-color: #16213E;
+    color: #FF2D2D !important;
+    border-left: 4px solid #FF2D2D;
+    font-weight: 600;
+}
+
+/* ========================================
+   SIDEBAR RECOLHIDA
+======================================== */
+
+.sidebar.collapsed .nav-link {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .nav {
+    margin-top: 10px;
+}
+
+/* ========================================
+   SCROLLBAR (opcional)
+======================================== */
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #2c3e5d;
+    border-radius: 3px;
+}
+
