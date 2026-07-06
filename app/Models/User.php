@@ -14,14 +14,37 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'usuarios';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'idUser';
+
+    /**
+     * Disable timestamps as the usuarios table doesn't have created_at/updated_at columns.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'nome',
         'email',
-        'password',
+        'usuario',
+        'senha',
+        'tipoUsuario',
     ];
 
     /**
@@ -30,7 +53,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        'senha',
         'remember_token',
     ];
 
@@ -43,7 +66,12 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
         ];
+    }
+
+    public function condominios()
+    {
+        return $this->belongsToMany(Condominio::class, 'usuarios_condominios', 'id_usuario', 'id_condominio', 'idUser', 'id_condominio')
+            ->withPivot('administrador', 'data_cadastro');
     }
 }

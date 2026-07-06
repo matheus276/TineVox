@@ -21,6 +21,20 @@
             <?php if (session('tipo_usuario') === 'admin'): ?>
 
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->is('users') ? 'active' : '' }}"
+                    href="{{ url('/users') }}">
+                    Usuários
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('condominios') ? 'active' : '' }}"
+                    href="{{ url('/condominios') }}">
+                    Condominios
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link {{ request()->is('new_ramal') ? 'active' : '' }}"
                     href="{{ url('/new_ramal') }}">
                     Adicionar Ramal
